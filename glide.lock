@@ -1,0 +1,8 @@
+hash: ff0828fc576ee8cf04852c62cb89e95620235f49f4cc97a5f33a5ac1a04c84e7
+updated: 2016-09-06T09:30:44.438668424+01:00
+imports:
+- name: github.com/garethr/dockerfilepp
+  version: dfce0d3bb05dc1a6402263d6604757606965b5d3
+  subpackages:
+  - '...'
+testImports: []

@@ -1,0 +1,5 @@
+package: github.com/garethr/dockerfilepp-labels
+import:
+- package: github.com/garethr/dockerfilepp
+  subpackages:
+  - '...'

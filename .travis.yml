@@ -1,0 +1,29 @@
+language: go
+sudo: false
+go:
+  - 1.7
+
+install:
+  - mkdir $GOPATH/bin
+  - curl https://glide.sh/get | sh
+  - make tools
+  - make deps
+
+script:
+  - make lint
+  - make test
+
+after_success:
+  - make build
+
+deploy:
+  provider: releases
+  api_key:
+    secure: bDxWiiPMxoee2SyQArXPkQ7atB3rZKT7xsvbkw70WHYgjK2o8MR4Q32I63Cg/q3JPpkamCxp5gXmaBQN6PlIdqVXv3t0Ygp1IjoOcg2hpSM5Ih4XhnzQG3Z+vAgCHDcEZlGy3Ny1o9df8M1zq5Wq5KHVrenklnp3/n4bUJrKNHwExjMLMmcmnEzd9DAnawud8AUo5p6Fbghdz6F8ypKqV9vGQoHgECDXnbCirVDs2aqhc+m62ZNiG9pkI+1wwHGC7VkNWUYl8YpSJ9ebirauAbJlarUw7sBd6UrGMwtd5Eos5smTk9EhBV+FHs9d4zqFuOb5G9+D7KzwC5iX3hvrG92CzNBADXf0FWhDIByQw6wnOMwJFGPXVcNSbfurndwz1tfTqhnE2dGhVNj10M6pULCXnJSacISm9aJT+FyB8t9+TsI/V3PQ6IZ1YdHy5yG8If1q07JUu4S0QJjuyk00bRYMco8WnsoJFjcbohJF67Ho41BLOOFfHX8cWUvaLtuBtywbRYnthHm3ejgCBLjjiHil05k5bB1CAl3xTqPXPHBdlyOR0KlVLNi2mbeolAgQdJqjf8o59P5yo7SFElH/c/Nb2bK6gh//Q6DtOkGKva3OC4tsIvvDzHRvsBV5pZTFplm12teSvM7D4gz1EsjULyERhvTdpM408oye39lN3IY=
+  file:
+    - releases/dockerfilepp-labels-darwin-amd64.tar.gz
+    - releases/dockerfilepp-labels-windows-amd64.tar.gz
+    - releases/dockerfilepp-labels-linux-amd64.tar.gz
+  on:
+    repo: garethr/dockerfilepp-labels
+    tags: true

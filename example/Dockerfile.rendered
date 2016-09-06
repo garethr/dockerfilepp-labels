@@ -1,0 +1,5 @@
+FROM alpine:3.4
+MAINTAINER Gareth Rushgrove "gareth@puppet.com"
+
+LABEL com.example.datetime="2016-09-06T10:53:35+01:00"
+LABEL com.example.vcs-ref="da3a8068c237137b3b468445b482cc307545af4e"
